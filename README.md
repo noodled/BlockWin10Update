@@ -2,7 +2,10 @@
 
 #About
 Blocks the Windows 10 Update on Windows 8.1 and 7 computers. The update icon wont start or appear anymore.
-Sound assets provided by Valve Corperation
+Sound assets provided by Valve Corperation.
+Set the `AllowTelemetry` string in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection` to `0`
+#How?
+Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX` with the value `1`. That's why the application require a privileged account.
 
 #Requirements
 + .NET 4.6
