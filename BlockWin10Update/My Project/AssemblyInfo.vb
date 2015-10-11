@@ -9,8 +9,8 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("BlockWin10Update")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("Block the Get Windows 10 Tray Icon & Application with some TF2 sound assets.")>
+<Assembly: AssemblyCompany("ElPumpo")>
 <Assembly: AssemblyProduct("BlockWin10Update")>
 <Assembly: AssemblyCopyright("Copyright ©  2015")>
 <Assembly: AssemblyTrademark("")>
