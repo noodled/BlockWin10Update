@@ -5,7 +5,7 @@ Blocks the Windows 10 Update on Windows 8.1 and 7 computers. The update icon won
 Sound assets provided by Valve Corperation, extracted from TF2's `.pak` files.
 
 #Downloads
-Downloads are available [here](https://github.com/ElPumpo/BlockWin10Update/releases)
+Downloads are available [here](https://github.com/ElPumpo/BlockWin10Update/releases).
 
 #How?
 Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX` with the value `1`. That's why the application require a privileged account.
