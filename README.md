@@ -3,7 +3,8 @@
 #About
 Blocks the Windows 10 Update on Windows 8.1 and 7 computers. The update icon wont start or appear anymore.
 Sound assets provided by Valve Corperation, extracted from TF2's `.pak` files.
-![](http://i.imgur.com/5jVUvMl.png)
+
+![alt tag](http://i.imgur.com/5jVUvMl.png)
 
 #Downloads
 Downloads are available [here](https://github.com/ElPumpo/BlockWin10Update/releases).
