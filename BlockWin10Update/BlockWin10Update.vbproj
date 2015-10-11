@@ -131,6 +131,13 @@
     <EmbeddedResource Include="Resources\spy_cheers01.wav" />
     <EmbeddedResource Include="Resources\spy_jeers02.wav" />
     <EmbeddedResource Include="Resources\spy_Revenge03.wav" />
+    <EmbeddedResource Include="Resources\spy_taunts13.wav" />
+    <EmbeddedResource Include="Resources\spy_specialcompleted12.wav" />
+    <EmbeddedResource Include="Resources\spy_uncloak_feigndeath.wav" />
+    <EmbeddedResource Include="Resources\spy_uncloak.wav" />
+    <None Include="Resources\version.txt" />
+    <EmbeddedResource Include="Resources\spy_cheers04.wav" />
+    <EmbeddedResource Include="Resources\spy_battlecry03.wav" />
     <Content Include="windows10.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

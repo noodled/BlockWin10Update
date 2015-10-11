@@ -63,9 +63,27 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         '''</summary>
+        Friend ReadOnly Property spy_battlecry03() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("spy_battlecry03", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
         Friend ReadOnly Property spy_cheers01() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("spy_cheers01", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property spy_cheers04() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("spy_cheers04", resourceCulture)
             End Get
         End Property
         
@@ -84,6 +102,42 @@ Namespace My.Resources
         Friend ReadOnly Property spy_Revenge03() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("spy_Revenge03", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property spy_taunts13() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("spy_taunts13", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property spy_uncloak() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("spy_uncloak", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property spy_uncloak_feigndeath() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("spy_uncloak_feigndeath", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to 1.0.0.0.
+        '''</summary>
+        Friend ReadOnly Property version() As String
+            Get
+                Return ResourceManager.GetString("version", resourceCulture)
             End Get
         End Property
     End Module

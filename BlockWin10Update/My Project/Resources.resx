@@ -118,13 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="spy_battlecry03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spy_battlecry03.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="spy_cheers01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spy_cheers01.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="spy_cheers04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spy_cheers04.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="spy_jeers02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spy_jeers02.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="spy_Revenge03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spy_Revenge03.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="spy_taunts13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spy_taunts13.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="spy_uncloak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spy_uncloak.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="spy_uncloak_feigndeath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spy_uncloak_feigndeath.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="version" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\version.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>
