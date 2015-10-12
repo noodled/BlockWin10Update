@@ -142,7 +142,7 @@
   <data name="spy_uncloak_feigndeath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spy_uncloak_feigndeath.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="version" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\version.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="spy_specialcompleted12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spy_specialcompleted12.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -55,10 +55,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -132,12 +134,12 @@
     <EmbeddedResource Include="Resources\spy_jeers02.wav" />
     <EmbeddedResource Include="Resources\spy_Revenge03.wav" />
     <EmbeddedResource Include="Resources\spy_taunts13.wav" />
-    <EmbeddedResource Include="Resources\spy_specialcompleted12.wav" />
     <EmbeddedResource Include="Resources\spy_uncloak_feigndeath.wav" />
     <EmbeddedResource Include="Resources\spy_uncloak.wav" />
-    <None Include="Resources\version.txt" />
+    <None Include="Resources\version" />
     <EmbeddedResource Include="Resources\spy_cheers04.wav" />
     <EmbeddedResource Include="Resources\spy_battlecry03.wav" />
+    <EmbeddedResource Include="Resources\spy_specialcompleted12.wav" />
     <Content Include="windows10.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

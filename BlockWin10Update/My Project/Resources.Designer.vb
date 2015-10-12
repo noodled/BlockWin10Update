@@ -108,6 +108,15 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         '''</summary>
+        Friend ReadOnly Property spy_specialcompleted12() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("spy_specialcompleted12", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
         Friend ReadOnly Property spy_taunts13() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("spy_taunts13", resourceCulture)
@@ -129,15 +138,6 @@ Namespace My.Resources
         Friend ReadOnly Property spy_uncloak_feigndeath() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("spy_uncloak_feigndeath", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to 1.0.0.0.
-        '''</summary>
-        Friend ReadOnly Property version() As String
-            Get
-                Return ResourceManager.GetString("version", resourceCulture)
             End Get
         End Property
     End Module
