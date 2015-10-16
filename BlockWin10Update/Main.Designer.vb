@@ -24,10 +24,10 @@ Partial Class Main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ExitBtn = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ApplyBtn = New System.Windows.Forms.Button()
         Me.unRadio = New System.Windows.Forms.RadioButton()
         Me.uRadio = New System.Windows.Forms.RadioButton()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -39,14 +39,14 @@ Partial Class Main
         Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'ExitBtn
         '
-        Me.Button1.Location = New System.Drawing.Point(6, 115)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(65, 28)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Exit"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ExitBtn.Location = New System.Drawing.Point(6, 115)
+        Me.ExitBtn.Name = "ExitBtn"
+        Me.ExitBtn.Size = New System.Drawing.Size(65, 28)
+        Me.ExitBtn.TabIndex = 2
+        Me.ExitBtn.Text = "Exit"
+        Me.ExitBtn.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
@@ -60,8 +60,8 @@ Partial Class Main
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.Button2)
-        Me.TabPage1.Controls.Add(Me.Button1)
+        Me.TabPage1.Controls.Add(Me.ApplyBtn)
+        Me.TabPage1.Controls.Add(Me.ExitBtn)
         Me.TabPage1.Controls.Add(Me.unRadio)
         Me.TabPage1.Controls.Add(Me.uRadio)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
@@ -72,14 +72,14 @@ Partial Class Main
         Me.TabPage1.Text = "Switch"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Button2
+        'ApplyBtn
         '
-        Me.Button2.Location = New System.Drawing.Point(6, 81)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(65, 28)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Apply"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.ApplyBtn.Location = New System.Drawing.Point(6, 81)
+        Me.ApplyBtn.Name = "ApplyBtn"
+        Me.ApplyBtn.Size = New System.Drawing.Size(65, 28)
+        Me.ApplyBtn.TabIndex = 4
+        Me.ApplyBtn.Text = "Apply"
+        Me.ApplyBtn.UseVisualStyleBackColor = True
         '
         'unRadio
         '
@@ -153,12 +153,12 @@ Partial Class Main
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Button1 As Button
+    Friend WithEvents ExitBtn As Button
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents ApplyBtn As Button
     Friend WithEvents unRadio As RadioButton
     Friend WithEvents uRadio As RadioButton
     Friend WithEvents Timer1 As Timer

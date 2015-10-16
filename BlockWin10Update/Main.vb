@@ -33,7 +33,7 @@ Public Class Main
     ''' <summary>
     ''' current verison, switched to integer
     ''' </summary>
-    Private OfflineVer As Integer = 1002
+    Private OfflineVer As Integer = 1003
 
     ''' <summary>
     ''' Boolean if UpdateURI couldn't be reached
@@ -42,7 +42,7 @@ Public Class Main
 
 #End Region
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles ExitBtn.Click
         Application.Exit()
     End Sub 'Exit
 
@@ -65,7 +65,7 @@ Public Class Main
             If keyTest Is Nothing Then
 
                 My.Computer.Audio.Play(My.Resources.spy_taunts13, AudioPlayMode.Background)
-                MessageBox.Show("You're not running Windows 7 or 8.1, if you are then insure that KB3035583 is installed.", "INFO", MessageBoxButtons.OK)
+                InfoBox.Display("You're not running Windows 7 or 8.1, if you are then insure that KB3035583 is installed")
             End If
 
         Catch ex As Exception
@@ -108,11 +108,11 @@ Public Class Main
         Console.WriteLine("OnlineVer: " + OnlineVer.ToString)
         Console.WriteLine("OfflineVer: " + OfflineVer.ToString)
 
-    End Sub
+    End Sub 'Fade In
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Button2.Enabled = False
-        Button1.Enabled = False
+    Private Sub ApplyBtn_Click(sender As Object, e As EventArgs) Handles ApplyBtn.Click
+        ApplyBtn.Enabled = False
+        ExitBtn.Enabled = False
 
         'Unblock
         If unRadio.Checked = True Then
@@ -128,11 +128,11 @@ Public Class Main
 
             End Try
             isBlocked = False
-            Button1.Enabled = True
+            ExitBtn.Enabled = True
             unRadio.Enabled = False
             uRadio.Enabled = False
             My.Computer.Audio.Play(My.Resources.spy_cheers01, AudioPlayMode.Background)
-            MessageBox.Show("Done! Reboot to take effect.", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            InfoBox.Display("Done! Reboot to take effect.")
 
             'Block
         ElseIf uRadio.Checked = True
@@ -148,22 +148,23 @@ Public Class Main
 
             End Try
             isBlocked = True
-            Button1.Enabled = True
+            ExitBtn.Enabled = True
             unRadio.Enabled = False
             uRadio.Enabled = False
             My.Computer.Audio.Play(My.Resources.spy_cheers01, AudioPlayMode.Background)
-            MessageBox.Show("Done! Reboot to take effect.", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            InfoBox.Display("Done! Reboot to take effect.")
 
         Else
             My.Computer.Audio.Play(My.Resources.spy_Revenge03, AudioPlayMode.Background)
-            MessageBox.Show("You must select a radio!", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            Button2.Enabled = True
-            Button1.Enabled = True
+            InfoBox.Display("You must select a radio!")
+            ApplyBtn.Enabled = True
+            ExitBtn.Enabled = True
         End If
 
     End Sub 'Apply
 
     Private Sub Home_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        InfoBox.Close()
         My.Computer.Audio.Play(My.Resources.spy_uncloak, AudioPlayMode.Background)
         e.Cancel = True
         Timer2.Enabled = True
@@ -174,7 +175,7 @@ Public Class Main
                 Threading.Thread.Sleep(10)
             End If
         Next
-    End Sub
+    End Sub 'Fade Out
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
         If Me.Opacity < 1.0 Then
@@ -182,7 +183,7 @@ Public Class Main
         Else
             Timer1.Enabled = False
         End If
-    End Sub
+    End Sub 'Fade in timer
 
     Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
         If Me.Opacity > 0.0 Then
@@ -191,7 +192,7 @@ Public Class Main
             Timer2.Enabled = False
             End
         End If
-    End Sub
+    End Sub 'Fade out timer
 
     Private Sub CheckForUpdate()
         Try
@@ -210,13 +211,13 @@ Public Class Main
 
         End Try
 
+        'IF start
         If ErrorExists = False Then
             If OnlineVer = OfflineVer Then
                 Console.WriteLine("Client is up to date")
 
             Else
 
-                'Starts here
                 If OnlineVer < OfflineVer Then
                     Console.WriteLine("Client is up to date")
                 Else
@@ -234,7 +235,7 @@ Public Class Main
                     End If
                 End If
             End If
-            'Ends here
+            'IF end
         End If
     End Sub 'Check for Update
 
