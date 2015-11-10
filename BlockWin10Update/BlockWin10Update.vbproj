@@ -136,7 +136,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="Resources\App.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\spy_cheers01.wav" />

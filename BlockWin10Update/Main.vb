@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Text.RegularExpressions
 Imports Microsoft.Win32
 
 Public Class Main
@@ -33,12 +34,22 @@ Public Class Main
     ''' <summary>
     ''' current verison, switched to integer
     ''' </summary>
-    Private OfflineVer As Integer = 1003
+    Private OfflineVer As Integer = 1004
 
     ''' <summary>
     ''' Boolean if UpdateURI couldn't be reached
     ''' </summary>
     Private ErrorExists As Boolean = False
+
+    ''' <summary>
+    ''' Current WinVer
+    ''' </summary>
+    Private WinVer As Integer
+
+    ''' <summary>
+    ''' Is it a recommended WinVer?
+    ''' </summary>
+    Private RecommendedWinVer As Boolean
 
 #End Region
 
@@ -50,7 +61,7 @@ Public Class Main
         Me.Opacity = 0.0
         My.Computer.Audio.Play(My.Resources.spy_uncloak_feigndeath, AudioPlayMode.Background)
 
-
+        'fade in animation
         For i = 0.0 To 10.0 Step 0.01
             If Me.Opacity < 1.0 Then
                 Me.Opacity += 0.01
@@ -58,14 +69,21 @@ Public Class Main
             End If
         Next
 
+        'Debug
+        Console.WriteLine("BlockWin10Update Booting..")
+
+        CheckWinVer()
 
         Try
             Dim keyTest As RegistryKey
             keyTest = Registry.LocalMachine.OpenSubKey(RegPath, True)
             If keyTest Is Nothing Then
 
-                My.Computer.Audio.Play(My.Resources.spy_taunts13, AudioPlayMode.Background)
-                InfoBox.Display("You're not running Windows 7 or 8.1, if you are then insure that KB3035583 is installed")
+                If RecommendedWinVer = True Then
+                    'is kb installed
+                    My.Computer.Audio.Play(My.Resources.spy_taunts13, AudioPlayMode.Background)
+                    InfoBox.Display("Insure that KB3035583 is installed! If you haven't seen the white Windows icon in your traybar, then google your issue, and please let the developer know.", False)
+                End If
             End If
 
         Catch ex As Exception
@@ -104,10 +122,6 @@ Public Class Main
 
         CheckForUpdate()
 
-        'debug
-        Console.WriteLine("OnlineVer: " + OnlineVer.ToString)
-        Console.WriteLine("OfflineVer: " + OfflineVer.ToString)
-
     End Sub 'Fade In
 
     Private Sub ApplyBtn_Click(sender As Object, e As EventArgs) Handles ApplyBtn.Click
@@ -132,7 +146,7 @@ Public Class Main
             unRadio.Enabled = False
             uRadio.Enabled = False
             My.Computer.Audio.Play(My.Resources.spy_cheers01, AudioPlayMode.Background)
-            InfoBox.Display("Done! Reboot to take effect.")
+            InfoBox.Display("Done! Reboot to take effect.", False)
 
             'Block
         ElseIf uRadio.Checked = True
@@ -152,11 +166,11 @@ Public Class Main
             unRadio.Enabled = False
             uRadio.Enabled = False
             My.Computer.Audio.Play(My.Resources.spy_cheers01, AudioPlayMode.Background)
-            InfoBox.Display("Done! Reboot to take effect.")
+            InfoBox.Display("Done! Reboot to take effect.", False)
 
         Else
             My.Computer.Audio.Play(My.Resources.spy_Revenge03, AudioPlayMode.Background)
-            InfoBox.Display("You must select a radio!")
+            InfoBox.Display("You must select a radio!", False)
             ApplyBtn.Enabled = True
             ExitBtn.Enabled = True
         End If
@@ -164,17 +178,21 @@ Public Class Main
     End Sub 'Apply
 
     Private Sub Home_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        'Close InfoBox.vb
         InfoBox.Close()
+
         My.Computer.Audio.Play(My.Resources.spy_uncloak, AudioPlayMode.Background)
+
+        'fade out animation
         e.Cancel = True
         Timer2.Enabled = True
-
         For i = 0.0 To 10.0 Step 0.01
             If Me.Opacity > 0.0 Then
                 Me.Opacity -= 0.01
                 Threading.Thread.Sleep(10)
             End If
         Next
+
     End Sub 'Fade Out
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
@@ -196,17 +214,21 @@ Public Class Main
 
     Private Sub CheckForUpdate()
         Try
+            'Debug
+            Console.WriteLine()
+            Console.WriteLine("Checking for Updates..")
             Dim Request As HttpWebRequest = HttpWebRequest.Create(UpdateURI)
             Request.Timeout = 10000
             Dim responce As HttpWebResponse = Request.GetResponse()
             Dim ReadText As StreamReader = New StreamReader(responce.GetResponseStream())
-            OnlineVer = ReadText.ReadToEnd()
+            OnlineVer = ReadText.ReadToEnd.Trim()
             ReadText.Close()
             responce.Close()
 
         Catch ex As Exception
             'Letting itself know that it cannot reach to the server
-            Console.WriteLine("Could not search for update")
+            Console.WriteLine("Could not search for updates")
+            OnlineVer = Nothing
             ErrorExists = True
 
         End Try
@@ -218,10 +240,15 @@ Public Class Main
 
             Else
 
+                If OfflineVer > OnlineVer Then
+                    Console.WriteLine("OfflineVer is greater than OnlineVer!")
+                End If
+
                 If OnlineVer < OfflineVer Then
                     Console.WriteLine("Client is up to date")
                 Else
 
+                    Console.WriteLine("Update available")
                     My.Computer.Audio.Play(My.Resources.spy_specialcompleted12, AudioPlayMode.Background)
 
                     Dim result As Integer = MessageBox.Show("A update is available, update now?", "INFO", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -237,6 +264,44 @@ Public Class Main
             End If
             'IF end
         End If
+        'debug
+        Console.WriteLine("OnlineVer: " + OnlineVer.ToString)
+        Console.WriteLine("OfflineVer: " + OfflineVer.ToString)
     End Sub 'Check for Update
+
+    Private Sub CheckWinVer()
+        'Problems with this approach: Windows Vista nor XP cannot be identified as we remove all chars
+
+        'Setup Stuff
+        Dim WinVerTrimmed As String
+        Dim WinVerOriginal As String = My.Computer.Info.OSFullName
+        Dim rgx = New Regex("[a-zA-Z .]")
+
+        'Remove all chars and only keep number
+        WinVerTrimmed = rgx.Replace(WinVerOriginal, "")
+        WinVerTrimmed.Trim()
+        WinVer = Convert.ToInt32(WinVerTrimmed)
+
+        Console.WriteLine("WinVer: " + WinVer.ToString)
+
+        If WinVer = 10 Then
+            RecommendedWinVer = False
+            InfoBox.Display("You're running Windows 10, do not expect the application to work!", True)
+
+        ElseIf WinVer = 81 Then
+            RecommendedWinVer = True
+
+        ElseIf WinVer = 8 Then
+            RecommendedWinVer = False
+            InfoBox.Display("You're running Windows 8, do not expect the application to work!", True)
+
+        ElseIf WinVer = 7 Then
+            RecommendedWinVer = True
+        Else
+            RecommendedWinVer = False
+            InfoBox.Display("You're running a unknown Windows version: " + WinVer.ToString + "! If you belive this is a mistake, please contact the developer! Do not expect the application to work!", True)
+
+        End If
+    End Sub
 
 End Class
