@@ -34,7 +34,7 @@ Public Class Main
     ''' <summary>
     ''' current verison, switched to integer
     ''' </summary>
-    Private OfflineVer As Integer = 1004
+    Private OfflineVer As Integer = 10041
 
     ''' <summary>
     ''' Boolean if UpdateURI couldn't be reached
@@ -82,7 +82,18 @@ Public Class Main
                 If RecommendedWinVer = True Then
                     'is kb installed
                     My.Computer.Audio.Play(My.Resources.spy_taunts13, AudioPlayMode.Background)
-                    InfoBox.Display("Insure that KB3035583 is installed! If you haven't seen the white Windows icon in your traybar, then google your issue, and please let the developer know.", False)
+                    InfoBox.Display("Insure that KB3035583 is installed! If you haven't seen the white Windows icon in your traybar, then this application isn't for you. I just may solved your issue, try blocking and it should work.", False)
+
+                    'Try to solve the issue
+                    Try
+                        My.Computer.Registry.LocalMachine.CreateSubKey(RegPath)
+
+                    Catch ex As Exception
+                        My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
+                        MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK)
+                        Application.Exit()
+
+                    End Try
                 End If
             End If
 
