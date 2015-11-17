@@ -12,7 +12,7 @@ Downloads are available [here](https://github.com/ElPumpo/BlockWin10Update/relea
 #How?
 Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX` with the value `1`. That's why the application require a privileged account.
 
-#Command line arguments: (1.1.0.0+)
+#Command line arguments: (v1.1.0.0+)
 `-log` logs to `Log.txt`
 
 `-block` blocks the update if possible
