@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Threading
 Imports Microsoft.Win32
 
 Public Class GUI
@@ -11,7 +12,7 @@ Public Class GUI
     '
 
     'To do:
-    '
+    'errorlevel (1: error, 0: sucessful)
     '
 
 #Region "Setup Stuff"
@@ -38,7 +39,7 @@ Public Class GUI
     ''' <summary>
     ''' current verison, switched to integer
     ''' </summary>
-    Private OfflineVer As Integer = 1100
+    Private OfflineVer As Integer = 1101
 
     ''' <summary>
     ''' Boolean if UpdateURI couldn't be reached
@@ -70,6 +71,11 @@ Public Class GUI
     ''' </summary>
     Private isFirstTime As Boolean = True
 
+    ''' <summary>
+    ''' Is being run by command line args?
+    ''' </summary>
+    Public isCommandLine As Boolean = False
+
 #End Region
 
     Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles ExitBtn.Click
@@ -77,17 +83,16 @@ Public Class GUI
     End Sub 'Exit
 
     Private Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Opacity = 0.0
+        Opacity = 0.0
         My.Computer.Audio.Play(My.Resources.spy_uncloak_feigndeath, AudioPlayMode.Background)
 
         'fade in animation
         For i = 0.0 To 10.0 Step 0.01
-            If Me.Opacity < 1.0 Then
-                Me.Opacity += 0.01
-                Threading.Thread.Sleep(10)
+            If Opacity < 1.0 Then
+                Opacity += 0.01
+                Thread.Sleep(10)
             End If
         Next
-
 
 
         'Debug
@@ -195,7 +200,7 @@ Public Class GUI
 
     End Sub 'Apply
 
-    Private Sub Home_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Home_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         'Close InfoBox.vb
         Log("Shutting down", True, True)
         InfoBox.Close()
@@ -206,27 +211,26 @@ Public Class GUI
         e.Cancel = True
         Timer2.Enabled = True
         For i = 0.0 To 10.0 Step 0.01
-            If Me.Opacity > 0.0 Then
-                Me.Opacity -= 0.01
-                Threading.Thread.Sleep(10)
+            If Opacity > 0.0 Then
+                Opacity -= 0.01
+                Thread.Sleep(10)
             End If
         Next
 
     End Sub 'Fade Out
 
-    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
-        If Me.Opacity < 1.0 Then
-            Me.Opacity += 0.01
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If Opacity < 1.0 Then
+            Opacity += 0.01
         Else
             Timer1.Enabled = False
         End If
     End Sub 'Fade in timer
 
-    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
-        If Me.Opacity > 0.0 Then
-            Me.Opacity -= 0.01
-        Else
-            Timer2.Enabled = False
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        If Opacity > 0.0 Then
+            Opacity -= 0.01
+        Else Timer2.Enabled = False
             End
         End If
     End Sub 'Fade out timer
@@ -297,12 +301,6 @@ Public Class GUI
 
         Dim WinVerOriginal As String = My.Computer.Info.OSFullName
 
-        If WinVerOriginal.Contains("Enterprise") Then
-            InfoBox.Display("You're running a Enterprise build! You cannot even upgrade to Windows 10, please contact your IT-administrator.", True)
-            WinVer = "Enterprise"
-            isRecommendedWinVer = False
-        End If
-
         'Windows 10
         If WinVerOriginal.Contains("10") Then
             WinVer = "10"
@@ -339,6 +337,12 @@ Public Class GUI
 
         End If
 
+        If WinVerOriginal.Contains("Enterprise") Then
+            InfoBox.Display("You're running a Enterprise build! You cannot upgrade to Windows 10, please contact your IT-administrator.", True)
+            WinVer = WinVer + " Enterprise"
+            isRecommendedWinVer = False
+        End If
+
         Log("WinVer: " + WinVer, True, True)
 
     End Sub 'Checks the Windows version
@@ -348,10 +352,11 @@ Public Class GUI
         If WriteToFile = True Then
             If doLog = True Then
 
-                'If file already exists, it will change the name of the old log file to YYYY/MM/DD HH-MM-SS
+                'If log file already exists
                 If isFirstTime = True Then
+                    LogFileName = "BlockWin10Update " + Date.Now.ToString("yyyy/MM/dd") + ".log"
                     If File.Exists(LogFileName) Then
-                        Rename(LogFileName, LogFileName + "." + Date.Now.ToString("yyyy/MM/dd HH-mm-ss"))
+                        Rename(LogFileName, "BlockWin10Update " + Date.Now.ToString("yyyy/MM/dd HH-mm-ss") + ".log")
                     End If
                     isFirstTime = False
                 End If
@@ -389,7 +394,7 @@ Public Class GUI
     Public Sub doUnBlock()
         Try
             Dim key = My.Computer.Registry.LocalMachine.OpenSubKey(RegPath, True)
-            key.SetValue("DisableGWX", "0", RegistryValueKind.DWord)
+            key.DeleteValue("DisableGWX")
             key.Close()
 
         Catch ex As Exception

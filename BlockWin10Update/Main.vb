@@ -13,9 +13,11 @@
                 GUI.Show()
                 Close()
             ElseIf CommandLineArgs.Contains("-unblock") Then
+                GUI.isCommandLine = True
                 GUI.doUnBlock()
                 Application.Exit()
             ElseIf CommandLineArgs.Contains("-block") Then
+                GUI.isCommandLine = True
                 GUI.doBlock()
                 Application.Exit()
             Else

@@ -124,7 +124,7 @@ Partial Class GUI
         Me.TextBox1.Size = New System.Drawing.Size(297, 204)
         Me.TextBox1.TabIndex = 0
         Me.TextBox1.Text = "Developed by Hawaii Beach (aka ElPumpo)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Sound assets by Valve Corperation." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ht" &
-    "tps://github.com/ElPumpo/BlockWin10Update" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "For those who do." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "v1.1.0.0"
+    "tps://github.com/ElPumpo/BlockWin10Update" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "For those who do." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "v1.1.0.1"
         '
         'Timer1
         '
@@ -132,7 +132,7 @@ Partial Class GUI
         'Timer2
         '
         '
-        'Main
+        'GUI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -142,7 +142,7 @@ Partial Class GUI
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(350, 300)
-        Me.Name = "Main"
+        Me.Name = "GUI"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BlockWin10Update"
         Me.TabControl1.ResumeLayout(False)

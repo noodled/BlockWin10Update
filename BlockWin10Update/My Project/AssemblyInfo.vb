@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("BlockWin10Update")>
 <Assembly: AssemblyDescription("Block the Get Windows 10 Tray Icon & Application with some TF2 sound assets.")>
-<Assembly: AssemblyCompany("ElPumpo")>
+<Assembly: AssemblyCompany("Hawaii_Beach")>
 <Assembly: AssemblyProduct("BlockWin10Update")>
 <Assembly: AssemblyCopyright("Copyright ©  2015")>
 <Assembly: AssemblyTrademark("")>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.1.0.0")>
-<Assembly: AssemblyFileVersion("1.1.0.0")>
+<Assembly: AssemblyVersion("1.1.0.1")>
+<Assembly: AssemblyFileVersion("1.1.0.1")>
