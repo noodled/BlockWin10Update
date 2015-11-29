@@ -356,7 +356,7 @@ Public Class GUI
                 If isFirstTime = True Then
                     LogFileName = "BlockWin10Update " + Date.Now.ToString("yyyy/MM/dd") + ".log"
                     If File.Exists(LogFileName) Then
-                        Rename(LogFileName, "BlockWin10Update " + Date.Now.ToString("yyyy/MM/dd HH-mm-ss") + ".log")
+                        LogFileName = "BlockWin10Update " + Date.Now.ToString("yyyy/MM/dd HH-mm-ss") + ".log"
                     End If
                     isFirstTime = False
                 End If
