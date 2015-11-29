@@ -15,19 +15,18 @@ You can of course clone this project and build it yourself really easily as it r
 Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX` with the value `1`. That's why the application require a privileged account.
 
 #Command line arguments: (v1.1.0.0+)
-`-log` logs to `Log.txt`. If `Log.txt` already exists it will rename the old log file with date and time.
+`-log` logs to `BlockWin10Update YYYY-MM-DD.log`. If the log file will be `BlockWin10Update YYYY-MM-DD HH-MM-SS.log`
 
 `-block` blocks the update
 
 `-unblock` unblocks the update
 
-Blocking and unblocking via the command line is not recommended, not fully tested and no guarantee of accually working. Doing this via the command line forces a change in the registry.
+Blocking and unblocking via the command line is not recommended, not fully tested and no guarantee of accually working. Doing this via the command line forces a change in the registry. Note that unblocking when no key exists, the application will throw a exception.
 
 #Requirements
 + .NET Framework 4.6
 
 #Known Issues
-+ Unblocking might not work. Workaround: delete  `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX`
 + No errorlevels are being spit out when using `-block` & `-unblock` args
 + Minor errors in GUI for non-hidpi users.
 
