@@ -15,7 +15,7 @@ You can of course clone this project and build it yourself really easily as it r
 Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX` with the value `1`. That's why the application require a privileged account.
 
 #Command line arguments: (v1.1.0.0+)
-`-log` logs to `BlockWin10Update YYYY-MM-DD.log`. If the log file will be `BlockWin10Update YYYY-MM-DD HH-MM-SS.log`
+`-log` logs to `BlockWin10Update YYYY-MM-DD.log`. If a log file with the same date already exists the logger will instead be logging to `BlockWin10Update YYYY-MM-DD HH-MM-SS.log`
 
 `-block` blocks the update
 
