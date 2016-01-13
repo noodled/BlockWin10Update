@@ -10,9 +10,13 @@ Public Class GUI
     'Description: Prevent "Get Windows 10" icon in tray from launching.
     'Release Date (YYYY-MM-DD): 2015-11-11
     '
+    'NOTES:
+    'possible errorlevels:
+    '1:  Error adding to registry
+    '2: other error, retry without launch args
+    '0: sucessful
 
     'To do:
-    'errorlevel (1: error, 0: sucessful)
     '
 
 #Region "Setup Stuff"
@@ -39,7 +43,7 @@ Public Class GUI
     ''' <summary>
     ''' current verison, switched to integer
     ''' </summary>
-    Private OfflineVer As Integer = 1101
+    Private OfflineVer As Integer = 1102
 
     ''' <summary>
     ''' Boolean if UpdateURI couldn't be reached
@@ -64,7 +68,7 @@ Public Class GUI
     ''' <summary>
     ''' Name of log file
     ''' </summary>
-    Private LogFileName As String = "Log.txt"
+    Private LogFileName As String
 
     ''' <summary>
     ''' Is it the first time the logger logs?
@@ -96,7 +100,7 @@ Public Class GUI
 
 
         'Debug
-        Log("BlockWin10Update Booting..", True, True)
+        Log("BlockWin10Update Booting . . .", True, True)
 
         CheckWinVer()
 
@@ -118,7 +122,7 @@ Public Class GUI
                     Catch ex As Exception
                         My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
                         MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK)
-                        Application.Exit()
+                        Environment.Exit(2)
 
                     End Try
                 End If
@@ -149,7 +153,7 @@ Public Class GUI
         Catch ex As Exception
             My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
             MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK)
-            Application.Exit()
+            Environment.Exit(2)
 
         End Try
 
@@ -240,7 +244,7 @@ Public Class GUI
             'Debug
             Log("-----UPDATE CHECKER-----", False, True)
             Log(Nothing, True, False)
-            Log("Checking for Updates..", True, True)
+            Log("Checking for Updates . . .", True, True)
 
             'Start request
             Dim theRequest As HttpWebRequest = HttpWebRequest.Create(UpdateURI)
@@ -253,7 +257,7 @@ Public Class GUI
 
         Catch ex As Exception
             'Letting itself know that it cannot reach to the server
-            Log("Could not search for updates", True, True)
+            Log("Could not search for updates!", True, True)
             OnlineVer = Nothing
             ErrorExists = True
 
@@ -368,6 +372,7 @@ Public Class GUI
 
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Environment.Exit(2)
 
                 End Try
             End If
@@ -387,7 +392,7 @@ Public Class GUI
         Catch ex As Exception
             My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
             MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Application.Exit()
+            Environment.Exit(1)
         End Try
     End Sub 'Blocks update
 
@@ -400,7 +405,7 @@ Public Class GUI
         Catch ex As Exception
             My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
             MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Application.Exit()
+            Environment.Exit(1)
 
         End Try
     End Sub 'Unblocks update

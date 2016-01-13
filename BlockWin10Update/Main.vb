@@ -2,8 +2,10 @@
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
         'Command Line arguments handler
-        Dim CommandLineArgs As System.Collections.ObjectModel.ReadOnlyCollection(Of String) = My.Application.CommandLineArgs
+        Dim CommandLineArgs As ObjectModel.ReadOnlyCollection(Of String) = My.Application.CommandLineArgs
+
         If CommandLineArgs.Count = 0 Then
             GUI.Show()
             Close()
