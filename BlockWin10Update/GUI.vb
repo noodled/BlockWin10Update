@@ -35,9 +35,9 @@ Public Class GUI
 
 #Region "Setup Stuff"
     ''' <summary>
-    ''' URI to fetch update data from 
+    ''' URL to fetch update data from 
     ''' </summary>
-    Public UpdateURI As String = "http://raw.githubusercontent.com/ElPumpo/BlockWin10Update/master/BlockWin10Update/Resources/version"
+    Public ServerURL As String = "http://raw.githubusercontent.com/ElPumpo/BlockWin10Update/master/BlockWin10Update/Resources/version"
 
     ''' <summary>
     ''' Decides which radio is enabled
@@ -109,7 +109,7 @@ Public Class GUI
 
 
         'Debug
-        Log("BlockWin10Update Booting . . .", True, True)
+        Log("BlockWin10Update booting . . .", True, True)
 
         CheckWinVer()
 
@@ -256,13 +256,13 @@ Public Class GUI
             Log("Checking for Updates . . .", True, True)
 
             'Start request
-            Dim theRequest As HttpWebRequest = HttpWebRequest.Create(UpdateURI)
+            Dim theRequest As HttpWebRequest = HttpWebRequest.Create(ServerURL)
             theRequest.Timeout = 10000 '10sec timeout
-            Dim theResponce As HttpWebResponse = theRequest.GetResponse()
-            Dim readFile As StreamReader = New StreamReader(theResponce.GetResponseStream())
-            OnlineVer = readFile.ReadToEnd.Trim()
-            readFile.Close()
-            theResponce.Close()
+            Dim responce As HttpWebResponse = theRequest.GetResponse()
+            Dim reader As StreamReader = New StreamReader(responce.GetResponseStream())
+            OnlineVer = reader.ReadToEnd.Trim()
+            reader.Close()
+            responce.Close()
 
         Catch ex As Exception
             'Letting itself know that it cannot reach to the server
