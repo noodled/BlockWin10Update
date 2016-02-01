@@ -21,7 +21,7 @@ Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTW
 
 `-unblock` unblocks the update
 
-Blocking and unblocking via the command line is not recommended, not fully tested and no guarantee of accually working. Doing this via the command line forces a change in the registry. Note that unblocking when no key exists, the application will throw a exception.
+Blocking and unblocking via the command line is not recommended. Doing this via the command line forces a change in the registry. Note that unblocking when no key exists, the application will throw a exception.
 
 #Requirements
 + .NET Framework 4.6
