@@ -82,6 +82,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EULA.Designer.vb">
+      <DependentUpon>EULA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EULA.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="InfoBox.Designer.vb">
       <DependentUpon>InfoBox.vb</DependentUpon>
     </Compile>
@@ -118,6 +124,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EULA.resx">
+      <DependentUpon>EULA.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InfoBox.resx">
       <DependentUpon>InfoBox.vb</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +147,7 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <None Include="LICENSE" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

@@ -5,19 +5,33 @@ Imports Microsoft.Win32
 
 Public Class GUI
 
-    '
+    'BlockWin10Update - Blocks the Windows 10 Update tray icon.
+    'Copyright (C) 2016 Hawaii_Beach
+
+    'This program Is free software: you can redistribute it And/Or modify
+    'it under the terms Of the GNU General Public License As published by
+    'the Free Software Foundation, either version 3 Of the License, Or
+    '(at your option) any later version.
+
+    'This program Is distributed In the hope that it will be useful,
+    'but WITHOUT ANY WARRANTY; without even the implied warranty Of
+    'MERCHANTABILITY Or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    'GNU General Public License For more details.
+
+    'You should have received a copy Of the GNU General Public License
+    'along with this program.  If Not, see <http://www.gnu.org/licenses/>.
+
+
     'Application Name: BlockWin10Update
     'Description: Prevent "Get Windows 10" icon in tray from launching.
     'Release Date (YYYY-MM-DD): 2015-11-11
-    '
+
     'NOTES:
     'possible errorlevels:
     '1:  Error adding to registry
     '2: other error, retry without launch args
     '0: sucessful
 
-    'To do:
-    '
 
 #Region "Setup Stuff"
     ''' <summary>
@@ -74,11 +88,6 @@ Public Class GUI
     ''' Is it the first time the logger logs?
     ''' </summary>
     Private isFirstTime As Boolean = True
-
-    ''' <summary>
-    ''' Is being run by command line args?
-    ''' </summary>
-    Public isCommandLine As Boolean = False
 
 #End Region
 
@@ -184,7 +193,7 @@ Public Class GUI
             Log("Done!", True, True)
 
             'Block
-        ElseIf uRadio.Checked = True
+        ElseIf uRadio.Checked = True Then
             doBlock()
 
             isBlocked = True
@@ -392,7 +401,11 @@ Public Class GUI
         Catch ex As Exception
             My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
             MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Environment.Exit(1)
+            If Main.isCommandLine = 1 Then
+                Environment.Exit(1)
+            Else Application.Exit()
+            End If
+
         End Try
     End Sub 'Blocks update
 
@@ -405,7 +418,10 @@ Public Class GUI
         Catch ex As Exception
             My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
             MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Environment.Exit(1)
+            If Main.isCommandLine = 1 Then
+                Environment.Exit(1)
+            Else Application.Exit()
+            End If
 
         End Try
     End Sub 'Unblocks update
