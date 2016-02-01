@@ -21,10 +21,44 @@ Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTW
 
 `-unblock` unblocks the update
 
-Blocking and unblocking via the command line is not recommended, not fully tested and no guarantee of accually working. Doing this via the command line forces a change in the registry. Note that unblocking when no key exists, the application will throw a exception.
+Blocking and unblocking via the command line is not recommended. Doing this via the command line forces a change in the registry. Note that unblocking when no key exists, the application will throw a exception.
 
 #Requirements
 + .NET Framework 4.6
+
+#Example scripting: (v1.1.0.2+)
+The application outputs errorlevels if command line arguments are used. Here's a example if you're planning to for whatever reason.
+run.bat:
+```
+title BlockWin10Update Example Script
+:main
+cls
+echo 1. Block
+echo 2. Unblock
+echo.
+set choice=
+set /p choice=Choice: 
+if "%choice%"=="1" (
+start /wait BlockWin10Update.exe -block
+goto status_%errorlevel%
+)
+if "%choice%"=="2" (
+start /wait BlockWin10Update.exe -unblock
+goto status_%errorlevel%
+)
+goto main
+
+:status_0 ::successful
+echo Done!
+exit /b 0
+
+:status_1 ::error adding to registry
+echo An error occurred whilst trying to modify the registry.
+exit /b 1
+
+:status_2 ::other or unknown error
+echo An unknown error occurred, please rerun the applcation without any command line arguments.
+```
 
 #Known Issues
 + No errorlevels are being spit out when using `-block` & `-unblock` args - solved in v1.1.0.2
