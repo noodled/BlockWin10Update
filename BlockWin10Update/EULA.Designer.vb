@@ -78,6 +78,7 @@ Partial Class EULA
         Me.Controls.Add(Me.accept)
         Me.Controls.Add(Me.decline)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "EULA"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "HiF - EULA"

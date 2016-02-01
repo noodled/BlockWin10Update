@@ -69,7 +69,7 @@ Partial Class GUI
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(300, 200)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Switch"
+        Me.TabPage1.Text = "Main"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'ApplyBtn
@@ -88,13 +88,13 @@ Partial Class GUI
         Me.unRadio.Name = "unRadio"
         Me.unRadio.Size = New System.Drawing.Size(80, 21)
         Me.unRadio.TabIndex = 1
-        Me.unRadio.TabStop = True
         Me.unRadio.Text = "Unblock"
         Me.unRadio.UseVisualStyleBackColor = True
         '
         'uRadio
         '
         Me.uRadio.AutoSize = True
+        Me.uRadio.Checked = True
         Me.uRadio.Location = New System.Drawing.Point(6, 33)
         Me.uRadio.Name = "uRadio"
         Me.uRadio.Size = New System.Drawing.Size(63, 21)
@@ -111,7 +111,7 @@ Partial Class GUI
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(300, 200)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Information"
+        Me.TabPage2.Text = "About"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'TextBox1

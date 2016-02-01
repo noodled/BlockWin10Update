@@ -52,6 +52,7 @@ Public Class EULA
             Application.Exit()
 
         End Try
-        Me.Close()
+        Main.Show()
+        Close()
     End Sub
 End Class

@@ -25,7 +25,6 @@ Public Class Main
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         CheckForEULA()
-        CheckForArgs()
     End Sub
 
     Private Sub CheckForEULA()
@@ -42,6 +41,8 @@ Public Class Main
                 If Not KeyString = "1" Then
                     EULA.Show()
                     Close()
+                Else
+                    CheckForArgs()
                 End If
             End If
 
