@@ -57,7 +57,7 @@ Public Class GUI
     ''' <summary>
     ''' current verison, switched to integer
     ''' </summary>
-    Private OfflineVer As Integer = 1102
+    Private OfflineVer As Integer
 
     ''' <summary>
     ''' Boolean if UpdateURI couldn't be reached
@@ -109,7 +109,7 @@ Public Class GUI
 
 
         'Debug
-        Log("BlockWin10Update booting . . .", True, True)
+        Log("BlockWin10Update v" + My.Application.Info.Version.ToString() + " booting . . .", True, True)
 
         CheckWinVer()
 
@@ -254,6 +254,9 @@ Public Class GUI
             Log("-----UPDATE CHECKER-----", False, True)
             Log(Nothing, True, False)
             Log("Checking for Updates . . .", True, True)
+
+            'Set OfflineVer, no longer manual
+            OfflineVer = My.Application.Info.Version.Major.ToString + My.Application.Info.Version.Minor.ToString + My.Application.Info.Version.Revision.ToString + My.Application.Info.Version.Build.ToString
 
             'Start request
             Dim theRequest As HttpWebRequest = HttpWebRequest.Create(ServerURL)
