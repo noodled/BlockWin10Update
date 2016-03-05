@@ -410,7 +410,7 @@ Public Class GUI
         Catch ex As Exception
             My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
             MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            If Main.isCommandLine = 1 Then
+            If Main.isCommandLine = True Then
                 Environment.Exit(1)
             Else Application.Exit()
             End If
@@ -427,7 +427,7 @@ Public Class GUI
         Catch ex As Exception
             My.Computer.Audio.Play(My.Resources.spy_jeers02, AudioPlayMode.Background)
             MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            If Main.isCommandLine = 1 Then
+            If Main.isCommandLine = True Then
                 Environment.Exit(1)
             Else Application.Exit()
             End If
