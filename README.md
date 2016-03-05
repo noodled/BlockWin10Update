@@ -24,7 +24,7 @@ Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTW
 Blocking and unblocking via the command line is not recommended. Doing this via the command line forces a change in the registry. Note that unblocking when no key exists, the application will throw a exception.
 
 #Requirements
-+ .NET Framework 4.6
++ .NET Framework 4.5.2
 
 #Example scripting: (v1.1.0.2+)
 The application outputs errorlevels if command line arguments are used. Here's a example if you're planning to for whatever reason.
@@ -58,6 +58,8 @@ exit /b 1
 
 :status_2 ::other or unknown error
 echo An unknown error occurred, please rerun the applcation without any command line arguments.
+
+pause
 ```
 
 #Known Issues
