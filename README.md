@@ -15,16 +15,16 @@ You can of course clone this project and build it yourself really easily as it r
 Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX` with the value `1`. That's why the application require a privileged account.
 
 #Command line arguments: (v1.1.0.0+)
-`-log` logs to `BlockWin10Update YYYY-MM-DD.log`. If a log file with the same date already exists the logger will instead be logging to `BlockWin10Update YYYY-MM-DD HH-MM-SS.log`
+`-log` logs to `BlockWin10Update YYYY-MM-DD.log`. If a log file with the same date already exists the logger will instead be logging to `BlockWin10Update YYYY-MM-DD HH-MM-SS.log`.
 
-`-block` blocks the update
+`-block` blocks the update.
 
-`-unblock` unblocks the update
+`-unblock` unblocks the update.
 
-Blocking and unblocking via the command line is not recommended. Doing this via the command line forces a change in the registry. Note that unblocking when no key exists, the application will throw a exception.
+Blocking and unblocking via the command line is not recommended. Note that unblocking when no key exists, the application will throw a exception.
 
 #Requirements
-+ .NET Framework 4.6
++ .NET Framework 4.5.2
 
 #Example scripting: (v1.1.0.2+)
 The application outputs errorlevels if command line arguments are used. Here's a example if you're planning to for whatever reason.
@@ -58,15 +58,14 @@ exit /b 1
 
 :status_2 ::other or unknown error
 echo An unknown error occurred, please rerun the applcation without any command line arguments.
+
+pause
 ```
 
 #Known Issues
-+ No errorlevels are being spit out when using `-block` & `-unblock` args - solved in v1.1.0.2
 + Minor errors in GUI for non-hidpi users.
 
 #License
-Starting v1.1.0.2, I'm swtiching license to GPLv3, as CC isn't recommended for developers.
-
 BlockWin10Update - Blocks the Windows 10 Update tray icon.
 Copyright (C) 2016 Hawaii_Beach
 
