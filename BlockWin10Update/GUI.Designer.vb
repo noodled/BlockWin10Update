@@ -94,12 +94,10 @@ Partial Class GUI
         'uRadio
         '
         Me.uRadio.AutoSize = True
-        Me.uRadio.Checked = True
         Me.uRadio.Location = New System.Drawing.Point(6, 33)
         Me.uRadio.Name = "uRadio"
         Me.uRadio.Size = New System.Drawing.Size(63, 21)
         Me.uRadio.TabIndex = 0
-        Me.uRadio.TabStop = True
         Me.uRadio.Text = "Block"
         Me.uRadio.UseVisualStyleBackColor = True
         '
