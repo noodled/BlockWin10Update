@@ -67,11 +67,11 @@ Public Class Main
             ElseIf CommandLineArgs.Contains("-unblock") Then
                 isCommandLine = True
                 GUI.doUnBlock()
-                Environment.Exit(7)
+                Environment.Exit(0)
             ElseIf CommandLineArgs.Contains("-block") Then
                 isCommandLine = True
                 GUI.doBlock()
-                Environment.Exit(7)
+                Environment.Exit(0)
             Else
                 GUI.Show()
                 Close()
