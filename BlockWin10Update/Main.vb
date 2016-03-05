@@ -19,7 +19,7 @@ Public Class Main
     'along with this program.  If Not, see <http://www.gnu.org/licenses/>.
 
 
-    Public isCommandLine As Boolean = 0
+    Public isCommandLine As Boolean = False
 
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -53,7 +53,7 @@ Public Class Main
     End Sub
 
     Private Sub CheckForArgs()
-        'Command Line arguments handler
+        'Command line argument handler
         Dim CommandLineArgs As ObjectModel.ReadOnlyCollection(Of String) = My.Application.CommandLineArgs
 
         If CommandLineArgs.Count = 0 Then

@@ -259,7 +259,7 @@ Public Class GUI
             'Debug
             Log("-----UPDATE CHECKER-----", False, True)
             Log(Nothing, True, False)
-            Log("Checking For Updates . . .", True, True)
+            Log("Checking for Updates . . .", True, True)
 
             'Set OfflineVer, no longer manual
             OfflineVer = My.Application.Info.Version.Major.ToString + My.Application.Info.Version.Minor.ToString + My.Application.Info.Version.Revision.ToString + My.Application.Info.Version.Build.ToString
@@ -275,7 +275,7 @@ Public Class GUI
 
         Catch ex As Exception
             'Letting itself know that it cannot reach to the server
-            Log("Could Not search For updates!", True, True)
+            Log("Could not search for updates!", True, True)
             OnlineVer = Nothing
             ErrorExists = True
 
@@ -284,26 +284,26 @@ Public Class GUI
         'IF start
         If ErrorExists = False Then
             If OnlineVer = OfflineVer Then
-                Log("Client Is up To Date", True, True)
+                Log("Client is up to date", True, True)
 
             Else
 
                 If OfflineVer > OnlineVer Then
-                    Log("OfflineVer Is greater than OnlineVer!", True, True)
+                    Log("OfflineVer is greater than OnlineVer!", True, True)
                 End If
 
                 If OnlineVer < OfflineVer Then
-                    Log("Client Is up To Date", True, True)
+                    Log("Client is up to date", True, True)
                 Else
 
                     Log("Update available", True, True)
                     My.Computer.Audio.Play(My.Resources.spy_specialcompleted12, AudioPlayMode.Background)
 
-                    Dim result As Integer = MessageBox.Show("A update Is available, Update now?", "INFO", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    Dim result As Integer = MessageBox.Show("A update is available, update now?", "INFO", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                     If result = DialogResult.Yes Then
                         'User pressed YES
                         My.Computer.Audio.Play(My.Resources.spy_battlecry03, AudioPlayMode.Background)
-                        Process.Start("https: //github.com/ElPumpo/BlockWin10Update/releases")
+                        Process.Start("https://github.com/ElPumpo/BlockWin10Update/releases")
                     Else
                         My.Computer.Audio.Play(My.Resources.spy_cheers04, AudioPlayMode.Background)
 
