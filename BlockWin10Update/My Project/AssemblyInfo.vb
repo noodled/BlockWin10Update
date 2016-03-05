@@ -1,5 +1,4 @@
-﻿Imports System
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 ' General Information about an assembly is controlled through the following 
@@ -9,7 +8,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("BlockWin10Update")>
-<Assembly: AssemblyDescription("Block the Get Windows 10 Tray Icon & application with some TF2 sound assets.")>
+<Assembly: AssemblyDescription("Block the get Windows 10 tray icon & application.")>
 <Assembly: AssemblyCompany("Hawaii_Beach")>
 <Assembly: AssemblyProduct("BlockWin10Update")>
 <Assembly: AssemblyCopyright("Copyright © 2016")>
@@ -31,5 +30,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.2.0.0")>
-<Assembly: AssemblyFileVersion("1.2.0.0")>
+<Assembly: AssemblyVersion("1.2.0.1")>
+<Assembly: AssemblyFileVersion("1.2.0.1")>

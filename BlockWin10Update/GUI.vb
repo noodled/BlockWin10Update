@@ -262,7 +262,7 @@ Public Class GUI
             Log("Checking for Updates . . .", True, True)
 
             'Set OfflineVer, no longer manual
-            OfflineVer = My.Application.Info.Version.Major.ToString + My.Application.Info.Version.Minor.ToString + My.Application.Info.Version.Revision.ToString + My.Application.Info.Version.Build.ToString
+            OfflineVer = My.Application.Info.Version.Major.ToString + My.Application.Info.Version.Minor.ToString + My.Application.Info.Version.Build.ToString + My.Application.Info.Version.Revision.ToString
 
             'Start request
             Dim theRequest As HttpWebRequest = HttpWebRequest.Create(ServerURL)
@@ -434,5 +434,4 @@ Public Class GUI
 
         End Try
     End Sub 'Unblocks update
-
 End Class
