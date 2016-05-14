@@ -75,7 +75,6 @@ Public Class Main
             Else
                 GUI.Show()
                 Close()
-
             End If
         End If
     End Sub
