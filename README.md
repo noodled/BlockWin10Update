@@ -14,7 +14,7 @@ You can of course clone this project and build it yourself really easily as it r
 #Methods
 Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX` with the value `1`. That's why the application require a privileged account.
 
-#Command line arguments: (v1.1.0.0+)
+#Command line arguments
 `-log` logs to `BlockWin10Update YYYY-MM-DD.log`. If a log file with the same date already exists the logger will instead be logging to `BlockWin10Update YYYY-MM-DD HH-MM-SS.log`.
 
 `-block` blocks the update.
@@ -26,7 +26,7 @@ Blocking and unblocking via the command line is not recommended. Note that unblo
 #Requirements
 + .NET Framework 4.5.2
 
-#Example scripting: (v1.1.0.2+)
+#Example scripting
 The application outputs errorlevels if command line arguments are used. Here's a example if you're planning to for whatever reason.
 run.bat:
 ```
@@ -63,7 +63,7 @@ pause
 ```
 
 #Known Issues
-+ Minor errors in GUI for non-hidpi users.
++ Minor GUI errors.
 
 #License
 BlockWin10Update - Blocks the Windows 10 Update tray icon.
