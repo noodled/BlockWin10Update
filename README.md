@@ -67,6 +67,7 @@ pause
 
 #License
 BlockWin10Update - Blocks the Windows 10 Update tray icon.
+
 Copyright (C) 2016 Hawaii_Beach
 
 This program Is free software: you can redistribute it And/Or modify
