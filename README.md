@@ -82,3 +82,8 @@ GNU General Public License For more details.
 
 You should have received a copy Of the GNU General Public License
 along with this program.  If Not, see <http://www.gnu.org/licenses/>.
+
+#Legal
+
+### Valve
+> © 2013 Valve Corporation. Valve, the Valve logo, Half-Life, the Half-Life logo, the Lambda logo, Steam, the Steam logo, Team Fortress, the Team Fortress logo, Opposing Force, Day of Defeat, the Day of Defeat logo, Counter-Strike, the Counter-Strike logo, Source, the Source logo, Counter-Strike: Condition Zero, Portal, the Portal logo, Dota, the Dota 2 logo, and Defense of the Ancients are trademarks and/or registered trademarks of Valve Corporation.
