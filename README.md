@@ -1,20 +1,20 @@
 # BlockWin10Update
 
-#About
+# About
 Blocks the Windows 10 Update icon & application on Windows 8.1 and 7 computers from launching. The update icon wont ever start or appear after blocking.
 Sound assets provided by Valve Corperation, extracted from Team Fortress 2 `.pak` files.
 
 ![alt tag](http://i.imgur.com/5jVUvMl.png)
 
-#Downloads
+# Download
 Downloads are available [here](https://github.com/ElPumpo/BlockWin10Update/releases).
 
 You can of course clone this project and build it yourself really easily as it requires no dependencies, built on VS2015. Keep in mind of the restrictions you have due to the license.
 
-#Methods
+# Methods
 Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX` with the value `1`. That's why the application require a privileged account.
 
-#Command line arguments
+# Command line arguments
 `-log` logs to `BlockWin10Update YYYY-MM-DD.log`. If a log file with the same date already exists the logger will instead be logging to `BlockWin10Update YYYY-MM-DD HH-MM-SS.log`.
 
 `-block` blocks the update.
@@ -23,10 +23,10 @@ Creates a DWORD in your registry named `DisableGWX` in `HKEY_LOCAL_MACHINE\SOFTW
 
 Blocking and unblocking via the command line is not recommended. Note that unblocking when no key exists, the application will throw a exception.
 
-#Requirements
+# Requirements
 + .NET Framework 4.5.2
 
-#Example scripting
+# Example scripting
 The application outputs errorlevels if command line arguments are used. Here's a example if you're planning to for whatever reason.
 run.bat:
 ```
@@ -62,10 +62,12 @@ echo An unknown error occurred, please rerun the applcation without any command 
 pause
 ```
 
-#Known Issues
+# Known Issues
 + Minor GUI errors.
 
-#License
+# Legal
+
+### Lisence
 BlockWin10Update - Blocks the Windows 10 Update tray icon.
 
 Copyright (C) 2016 Hawaii_Beach
@@ -82,8 +84,6 @@ GNU General Public License For more details.
 
 You should have received a copy Of the GNU General Public License
 along with this program.  If Not, see <http://www.gnu.org/licenses/>.
-
-#Legal
 
 ### Valve
 > © 2013 Valve Corporation. Valve, the Valve logo, Half-Life, the Half-Life logo, the Lambda logo, Steam, the Steam logo, Team Fortress, the Team Fortress logo, Opposing Force, Day of Defeat, the Day of Defeat logo, Counter-Strike, the Counter-Strike logo, Source, the Source logo, Counter-Strike: Condition Zero, Portal, the Portal logo, Dota, the Dota 2 logo, and Defense of the Ancients are trademarks and/or registered trademarks of Valve Corporation.
