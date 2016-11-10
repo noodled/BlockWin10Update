@@ -1,6 +1,4 @@
 # BlockWin10Update
-
-# About
 Blocks the Windows 10 Update icon & application on Windows 8.1 and 7 computers from launching. The update icon wont ever start or appear after blocking.
 Sound assets provided by Valve Corperation, extracted from Team Fortress 2 `.pak` files.
 
